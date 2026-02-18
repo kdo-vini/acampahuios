@@ -76,7 +76,7 @@ export const Registration: React.FC = () => {
                 method: 'POST',
                 mode: 'no-cors', // Important for Google Scripts
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'text/plain', // Changed to text/plain to correct payload handling
                 },
                 body: JSON.stringify(dataToSubmit)
             });
@@ -101,7 +101,7 @@ export const Registration: React.FC = () => {
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-display text-white mb-4">Garanta sua Vaga</h2>
-                    <p className="text-slate-400">Preencha o formulário abaixo para realizar sua pré-inscrição no Acampamento HUIOS 2026.</p>
+                    <p className="text-slate-400">Preencha o formulário abaixo para realizar sua inscrição no Acampamento HUIOS 2026.</p>
                 </div>
 
                 <div className="bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">
@@ -111,7 +111,7 @@ export const Registration: React.FC = () => {
                                 <CheckCircle2 className="w-10 h-10 text-green-500" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-2">Inscrição Enviada!</h3>
-                            <p className="text-slate-400 mb-8">Sua pré-inscrição foi realizada com sucesso. Entraremos em contato em breve.</p>
+                            <p className="text-slate-400 mb-8">Sua inscrição foi realizada com sucesso. Entraremos em contato em breve.</p>
                             <Button onClick={() => setStatus('idle')} variant="outline">
                                 Nova Inscrição
                             </Button>
@@ -188,14 +188,10 @@ export const Registration: React.FC = () => {
 
                             {/* Age Display */}
                             {age !== null && (
-                                <div className={`p-4 rounded-xl border flex items-center gap-3 ${age < 14
-                                    ? 'bg-red-500/10 border-red-500/30 text-red-200'
-                                    : 'bg-camp-primary/10 border-camp-primary/30 text-camp-primary'
-                                    }`}>
+                                <div className="p-4 rounded-xl border flex items-center gap-3 bg-camp-primary/10 border-camp-primary/30 text-camp-primary animate-fade-in">
                                     <AlertCircle className="w-5 h-5" />
                                     <div>
                                         <span className="font-bold text-lg">{age} anos</span>
-                                        {age < 14 && <span className="text-sm ml-2 block sm:inline">- Idade mínima não alcançada (14 anos)</span>}
                                     </div>
                                 </div>
                             )}
@@ -212,9 +208,9 @@ export const Registration: React.FC = () => {
                                 type="submit"
                                 className="w-full"
                                 size="lg"
-                                disabled={status === 'submitting' || (age !== null && age < 14)}
+                                disabled={status === 'submitting'}
                             >
-                                {status === 'submitting' ? 'Enviando...' : 'Confirmar Pré-Inscrição'}
+                                {status === 'submitting' ? 'Enviando...' : 'Confirmar Inscrição'}
                             </Button>
                         </form>
                     )}
