@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-slate-800 pt-8 text-center text-xs">
           <p>&copy; 2026 Acampamento HUIOS. Todos os direitos reservados.</p>
           <p className="mt-2">
-            Desenvolvido por <a href="https://techneia.com.br" target="_blank" rel="noopener noreferrer" className="text-camp-primary hover:underline">Téchne Sistemas</a>
+            Desenvolvido por <a href="https://techneia.com.br" target="_blank" rel="noopener noreferrer" className="text-camp-primary hover:underline">Téchne Sistemas (techneia.com.br)</a>
           </p>
         </div>
       </div>
