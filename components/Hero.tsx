@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          src="/gallery/6.jpeg"
           alt="Acampamento background"
           className="w-full h-full object-cover"
         />

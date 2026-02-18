@@ -43,12 +43,13 @@ export const SPONSOR_OPTIONS: SponsorOption[] = [
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: '1', url: 'https://picsum.photos/800/600?random=1', alt: 'Momentos de louvor' },
-  { id: '2', url: 'https://picsum.photos/800/800?random=2', alt: 'Atividades ao ar livre' },
-  { id: '3', url: 'https://picsum.photos/600/800?random=3', alt: 'Fogueira à noite' },
-  { id: '4', url: 'https://picsum.photos/800/500?random=4', alt: 'Refeitório e comunhão' },
-  { id: '5', url: 'https://picsum.photos/700/700?random=5', alt: 'Dinâmicas em grupo' },
-  { id: '6', url: 'https://picsum.photos/800/600?random=6', alt: 'Rancho Amor Infinito - Vista aérea' },
+  { id: '1', url: '/gallery/1.jpeg', alt: 'Momentos de louvor' },
+  { id: '2', url: '/gallery/2.jpeg', alt: 'Atividades ao ar livre' },
+  { id: '3', url: '/gallery/3.jpeg', alt: 'Fogueira à noite' },
+  { id: '4', url: '/gallery/4.jpeg', alt: 'Refeitório e comunhão' },
+  { id: '5', url: '/gallery/5.jpeg', alt: 'Dinâmicas em grupo' },
+  { id: '6', url: '/gallery/6.jpeg', alt: 'Rancho Amor Infinito - Vista aérea' },
+  { id: '7', url: '/gallery/7.jpeg', alt: 'Conexão e Espiritualidade' },
 ];
 
 export const FAQS: FaqItem[] = [
