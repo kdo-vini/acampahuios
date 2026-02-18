@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acampamento HUIOS 2026</title>
-    <meta name="description" content="Participe do nosso acampamento de jovens! Adote um jovem e transforme vidas." />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Permanent Marker', 'cursive'],
-            },
-            colors: {
-              camp: {
-                dark: '#0f172a',
-                primary: '#f97316', // Orange
-                secondary: '#0ea5e9', // Sky Blue
-                accent: '#84cc16', // Lime
-                light: '#f1f5f9',
-              }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acampamento HUIOS 2026</title>
+  <meta name="description" content="Participe do nosso acampamento de jovens! Adote um jovem e transforme vidas." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Permanent Marker', 'cursive'],
+          },
+          colors: {
+            camp: {
+              dark: '#0f172a',
+              primary: '#f97316', // Orange
+              secondary: '#0ea5e9', // Sky Blue
+              accent: '#84cc16', // Lime
+              light: '#f1f5f9',
             }
           }
         }
       }
-    </script>
-    <style>
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-      .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-      }
-      .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -56,7 +60,10 @@
 }
 </script>
 </head>
-  <body class="bg-camp-light text-slate-800 antialiased selection:bg-camp-primary selection:text-white">
-    <div id="root"></div>
-  </body>
+
+<body class="bg-camp-light text-slate-800 antialiased selection:bg-camp-primary selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
