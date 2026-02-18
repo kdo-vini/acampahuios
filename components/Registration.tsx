@@ -164,7 +164,7 @@ export const Registration: React.FC = () => {
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-display text-white mb-4">Garanta sua Vaga</h2>
-                    <p className="text-slate-400">Preencha o formulário abaixo para realizar sua inscrição no Acampamento HUIOS 2026.</p>
+                    <p className="text-slate-400">Preencha o formulário abaixo para realizar sua inscrição no 4° Acampamento HUIOS 2026 - CONTRACULTURA.</p>
                 </div>
 
                 <div className="bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">

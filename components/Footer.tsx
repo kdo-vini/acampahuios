@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
               />
             </div>
             <p className="text-sm max-w-sm mb-6">
-              O acampamento de jovens da nossa igreja. Um tempo separado para sermos impactados pelo amor de Cristo.
+              4° Acampamento HUIOS 2026 - CONTRACULTURA. "Diferente por essência, não por aparência."
             </p>
             <div className="flex gap-4">
               <a
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-slate-800 pt-8 text-center text-xs">
-          <p>&copy; 2026 Acampamento HUIOS. Todos os direitos reservados.</p>
+          <p>&copy; 2026 4° Acampamento HUIOS - CONTRACULTURA. Todos os direitos reservados.</p>
           <p className="mt-2">
             Desenvolvido por <a href="https://techneia.com.br" target="_blank" rel="noopener noreferrer" className="text-camp-primary hover:underline">Téchne Sistemas</a>
           </p>

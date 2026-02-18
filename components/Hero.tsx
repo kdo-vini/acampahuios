@@ -21,14 +21,14 @@ export const Hero: React.FC = () => {
           <span className="inline-block py-1 px-3 rounded-full bg-camp-primary/20 border border-camp-primary/50 text-camp-primary text-sm font-semibold mb-6 backdrop-blur-sm">
             Inscrições Abertas 2026
           </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-tight drop-shadow-xl">
-            ACAMPAMENTO<br />
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-tight drop-shadow-xl uppercase">
+            4° ACAMPA HUIOS<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-camp-primary to-yellow-400">
-              HUIOS
+              CONTRACULTURA
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-2xl mx-auto font-light">
-            Quatro dias de conexão, aventura e transformação espiritual que marcarão sua vida para sempre.
+          <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-2xl mx-auto font-light italic">
+            "Diferente por essência, não por aparência."
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12 text-slate-300">
