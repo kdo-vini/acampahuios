@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                  className="text-sm font-medium text-slate-300 hover:text-camp-secondary transition-colors"
                 >
                   {link.name}
                 </a>

@@ -157,9 +157,9 @@ export const Registration: React.FC = () => {
     };
 
     return (
-        <section id="inscricao" className="py-24 bg-slate-900 relative overflow-hidden">
+        <section id="inscricao" className="py-24 bg-camp-dark relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-camp-primary via-slate-900 to-slate-900"></div>
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-camp-primary via-camp-dark to-camp-dark"></div>
 
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12">

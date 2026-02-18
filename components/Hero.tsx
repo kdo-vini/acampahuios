@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
-          <span className="inline-block py-1 px-3 rounded-full bg-camp-primary/20 border border-camp-primary/50 text-camp-primary text-sm font-semibold mb-6 backdrop-blur-sm">
+          <span className="inline-block px-4 py-1.5 bg-camp-primary/20 border border-camp-primary/30 rounded-full text-white text-sm font-bold mb-4 animate-fade-in uppercase">
             Inscrições Abertas 2026
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-tight drop-shadow-xl uppercase">

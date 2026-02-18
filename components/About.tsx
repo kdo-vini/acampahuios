@@ -73,7 +73,7 @@ export const About: React.FC = () => {
             <p className="text-xl md:text-2xl font-light mb-0">
               Este não é apenas um acampamento. Viveremos dias incríveis para quem decidiu que não vai apenas "sobreviver" à cultura, mas sim <strong>manifestar o Reino de Deus</strong> nela.
             </p>
-            <p className="mt-6 text-camp-primary font-bold text-xl uppercase tracking-widest">
+            <p className="mt-6 text-camp-secondary font-bold text-xl uppercase tracking-widest">
               Prepare-se para ser transformado de dentro para fora.
             </p>
           </div>

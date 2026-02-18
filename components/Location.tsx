@@ -9,7 +9,7 @@ export const Location: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-camp-secondary/20 text-camp-dark text-sm font-bold mb-6">
               <MapPin className="w-4 h-4" /> Localização
             </div>
             <h2 className="text-4xl font-bold text-camp-dark mb-6">{CAMP_LOCATION_NAME}</h2>
