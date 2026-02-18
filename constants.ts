@@ -12,7 +12,8 @@ export const PIX_MERCHANT_NAME = "VINICIUS GARCIA NASCIMENTO";
 export const PIX_MERCHANT_CITY = "SAO PAULO";
 
 // Google Sheets Integration
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby0v16lxXTOoXyKgIriB4x9Xal__jZ2xva5zU18ywc9XMvhHsQC-5Z0UkxmLKPExTOe/exec";
+// URL do script Google Apps Script
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUkaXnYxNqQFDiQUzqSjSTsj97Daf95mSF6qJibohCFx4IGdMKGXvuQq5QnX4UmC1W/exec ";
 
 // Stripe Configuration (Use sua chave pública de teste aqui)
 export const STRIPE_PUBLIC_KEY = "pk_test_TYooMQauvdEDq54NiTphI7jx";
