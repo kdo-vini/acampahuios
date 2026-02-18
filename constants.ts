@@ -12,11 +12,10 @@ export const PIX_MERCHANT_NAME = "VINICIUS GARCIA NASCIMENTO";
 export const PIX_MERCHANT_CITY = "SAO PAULO";
 
 // Google Sheets Integration
-// URL do script Google Apps Script
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5nWdH6ou6bYG5iIC3BOzvhHgRVKHmdMi4iu33wWLC-PwZuajpbiyNdX4OPE_glDIR/exec";
 
-// Stripe Configuration (Use sua chave pública de teste aqui)
-export const STRIPE_PUBLIC_KEY = "pk_test_TYooMQauvdEDq54NiTphI7jx";
+// Links de Pagamento (InfinitePay)
+export const REGISTRATION_PAYMENT_LINK = "https://link.infinitepay.io/technesistemas/VC1DLTAtUg-3eM55I626T-250,00";
 
 export const SPONSOR_OPTIONS: SponsorOption[] = [
   {
@@ -24,6 +23,7 @@ export const SPONSOR_OPTIONS: SponsorOption[] = [
     title: 'Apoio Parcial',
     amount: 50.00,
     description: 'Ajude a custear a alimentação de um jovem por um dia.',
+    paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-7IiiqcTV5x-50,00',
   },
   {
     id: 'half',
@@ -31,12 +31,14 @@ export const SPONSOR_OPTIONS: SponsorOption[] = [
     amount: 125.00,
     description: 'Cubra 50% do valor da inscrição.',
     popular: true,
+    paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-oIkOn7Q5J-125,00',
   },
   {
     id: 'full',
     title: 'Bolsa Completa',
     amount: 250.00,
     description: 'Adote um jovem integralmente! Transforme uma vida.',
+    paymentLink: 'https://link.infinitepay.io/technesistemas/VC1DLTAtUg-3eM55I626T-250,00',
   },
 ];
 

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
-import { User, Calendar, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
+import { User, Calendar, FileText, CheckCircle2, AlertCircle, CreditCard, QrCode, Copy, Check } from 'lucide-react';
 import { Toggle } from './Toggle';
+import { generatePixPayload } from '../services/pixService';
+import QRCode from 'qrcode';
 // import { supabase } from '../services/supabase'; // We will add this later
 
-import { GOOGLE_SCRIPT_URL } from '../constants';
+import { GOOGLE_SCRIPT_URL, REGISTRATION_PAYMENT_LINK, PIX_KEY, PIX_MERCHANT_NAME, REGISTRATION_FEE } from '../constants';
 
 export const Registration: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -22,6 +24,25 @@ export const Registration: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [loadingMessage, setLoadingMessage] = useState('Processando...');
+
+    const [showPix, setShowPix] = useState(false);
+    const [pixQrCode, setPixQrCode] = useState('');
+    const [pixPayload, setPixPayload] = useState('');
+    const [copied, setCopied] = useState(false);
+
+    const handlePixClick = async () => {
+        const payload = generatePixPayload(REGISTRATION_FEE, 'REG' + Date.now().toString().slice(-4));
+        const qrCode = await QRCode.toDataURL(payload);
+        setPixPayload(payload);
+        setPixQrCode(qrCode);
+        setShowPix(true);
+    };
+
+    const copyPix = () => {
+        navigator.clipboard.writeText(pixPayload);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     // Calculate age whenever birthDate changes
     useEffect(() => {
@@ -148,15 +169,62 @@ export const Registration: React.FC = () => {
 
                 <div className="bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">
                     {status === 'success' ? (
-                        <div className="text-center py-12">
+                        <div className="text-center animate-fade-in">
                             <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <CheckCircle2 className="w-10 h-10 text-green-500" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-2">Inscrição Enviada!</h3>
-                            <p className="text-slate-400 mb-8">Sua inscrição foi realizada com sucesso. Entraremos em contato em breve.</p>
-                            <Button onClick={() => setStatus('idle')} variant="outline">
-                                Nova Inscrição
-                            </Button>
+                            <p className="text-slate-400 mb-8">Sua inscrição foi realizada com sucesso. Agora, escolha uma forma de pagamento para garantir sua vaga:</p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                                <button
+                                    type="button"
+                                    onClick={handlePixClick}
+                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-primary hover:bg-slate-900 transition-all group"
+                                >
+                                    <QrCode className="w-8 h-8 text-camp-primary mb-3 group-hover:scale-110 transition-transform" />
+                                    <span className="text-white font-bold">Pagar via PIX</span>
+                                    <span className="text-xs text-slate-500 mt-1">Liberação imediata</span>
+                                </button>
+
+                                <a
+                                    href={REGISTRATION_PAYMENT_LINK}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-blue-500 hover:bg-slate-900 transition-all group"
+                                >
+                                    <CreditCard className="w-8 h-8 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
+                                    <span className="text-white font-bold">Cartão de Crédito</span>
+                                    <span className="text-xs text-slate-500 mt-1">Link InfinitePay</span>
+                                </a>
+                            </div>
+
+                            {showPix && (
+                                <div className="mb-8 p-6 bg-white rounded-2xl animate-fade-in-up">
+                                    <h4 className="text-slate-900 font-bold mb-4">Atenção ao realizar o PIX</h4>
+                                    <div className="flex justify-center mb-4">
+                                        <img src={pixQrCode} alt="PIX QR Code" className="w-48 h-48" />
+                                    </div>
+                                    <div className="bg-slate-100 p-3 rounded-xl mb-4 text-left">
+                                        <p className="text-xs text-slate-400 mb-1 font-bold">Beneficiário:</p>
+                                        <p className="text-sm text-slate-800 font-bold">{PIX_MERCHANT_NAME}</p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={copyPix}
+                                        className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl hover:bg-black transition-colors"
+                                    >
+                                        {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+                                        {copied ? 'Copiado!' : 'Copiar Código PIX'}
+                                    </button>
+                                </div>
+                            )}
+
+                            <div className="pt-6 border-t border-slate-700">
+                                <Button onClick={() => { setStatus('idle'); setShowPix(false); }} variant="outline">
+                                    Fazer Outra Inscrição
+                                </Button>
+                            </div>
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="space-y-6">
