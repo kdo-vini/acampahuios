@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Registration } from './components/Registration';
 import { Adopt } from './components/Adopt';
 import { Gallery } from './components/Gallery';
 import { Location } from './components/Location';
@@ -16,6 +17,7 @@ function App() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <Registration />
         <Adopt />
         <Gallery />
         <Location />

@@ -11,6 +11,9 @@ export const PIX_KEY = "24a79c6a-6e67-4e92-ae44-45dbd43961c3";
 export const PIX_MERCHANT_NAME = "VINICIUS GARCIA NASCIMENTO";
 export const PIX_MERCHANT_CITY = "SAO PAULO";
 
+// Google Sheets Integration
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby0v16lxXTOoXyKgIriB4x9Xal__jZ2xva5zU18ywc9XMvhHsQC-5Z0UkxmLKPExTOe/exec";
+
 // Stripe Configuration (Use sua chave pública de teste aqui)
 export const STRIPE_PUBLIC_KEY = "pk_test_TYooMQauvdEDq54NiTphI7jx";
 
@@ -56,6 +59,6 @@ export const FAQS: FaqItem[] = [
   },
   {
     question: "Qual a idade mínima?",
-    answer: "O acampamento é voltado para jovens a partir de 14 anos."
+    answer: "O acampamento é voltado para jovens a partir de 13 anos."
   }
 ];

@@ -16,16 +16,16 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { name: 'Sobre', href: '#sobre' },
+    { name: 'Inscrição', href: '#inscricao' },
     { name: 'Galeria', href: '#galeria' },
     { name: 'Local', href: '#local' },
     { name: 'Dúvidas', href: '#faq' },
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen ? 'bg-camp-dark/95 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-5'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || mobileMenuOpen ? 'bg-camp-dark/95 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -41,8 +41,8 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center gap-8">
             <nav className="flex gap-6">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
+                <a
+                  key={link.name}
                   href={link.href}
                   className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
                 >
@@ -50,8 +50,8 @@ export const Header: React.FC = () => {
                 </a>
               ))}
             </nav>
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               onClick={() => document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Adote um Jovem
@@ -59,7 +59,7 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="md:hidden">
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-white p-2"
             >
@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
               </a>
             ))}
             <div className="pt-4">
-              <Button 
+              <Button
                 className="w-full"
                 onClick={() => {
                   setMobileMenuOpen(false);
