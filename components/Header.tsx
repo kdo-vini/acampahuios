@@ -52,6 +52,7 @@ export const Header: React.FC = () => {
             </nav>
             <Button
               size="sm"
+              variant="outline"
               onClick={() => document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Adote um Jovem
@@ -86,6 +87,7 @@ export const Header: React.FC = () => {
             <div className="pt-4">
               <Button
                 className="w-full"
+                variant="outline"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' });
