@@ -13,7 +13,7 @@ export const PIX_MERCHANT_CITY = "SAO PAULO";
 
 // Google Sheets Integration
 // URL do script Google Apps Script
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUkaXnYxNqQFDiQUzqSjSTsj97Daf95mSF6qJibohCFx4IGdMKGXvuQq5QnX4UmC1W/exec ";
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx5nWdH6ou6bYG5iIC3BOzvhHgRVKHmdMi4iu33wWLC-PwZuajpbiyNdX4OPE_glDIR/exec";
 
 // Stripe Configuration (Use sua chave pública de teste aqui)
 export const STRIPE_PUBLIC_KEY = "pk_test_TYooMQauvdEDq54NiTphI7jx";

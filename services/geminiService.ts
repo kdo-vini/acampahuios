@@ -22,7 +22,7 @@ Diretrizes de Comportamento:
 Base de Conhecimento (FAQ):
 
 **Como me cadastro / Inscrição:**
-- Explique: "Para se inscrever, vá até a seção **'Garanta sua Vaga'** no site."
+- Explique: "Para se inscrever, vá até a seção 'Garanta sua Vaga' no site."
 - Mencione que é necessário preencher Nome Completo, CPF e Data de Nascimento.
 - O formulário calcula a idade automaticamente.
 - Para menores de idade, a inscrição depende da autorização dos pais (mas o site aceita o cadastro).
