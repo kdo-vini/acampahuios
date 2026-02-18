@@ -8,9 +8,9 @@ export const Hero: React.FC = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-          alt="Acampamento background" 
+        <img
+          src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="Acampamento background"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-camp-dark/70 via-camp-dark/50 to-camp-dark/90"></div>
@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
           <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-2xl mx-auto font-light">
             Quatro dias de conexão, aventura e transformação espiritual que marcarão sua vida para sempre.
           </p>
-          
+
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12 text-slate-300">
             <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
               <Calendar className="w-5 h-5 text-camp-primary" />
@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button size="lg" onClick={() => document.getElementById('inscricao')?.scrollIntoView({ behavior: 'smooth' })}>
               Quero Participar
             </Button>
             <Button variant="outline" size="lg" className="group" onClick={() => document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Decorative gradient at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-camp-light to-transparent z-10"></div>
     </section>
