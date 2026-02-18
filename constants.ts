@@ -2,7 +2,7 @@ import { SponsorOption, GalleryImage, FaqItem } from './types';
 
 export const CAMP_NAME = "Acampamento HUIOS 2026";
 export const CAMP_DATE = "18 a 21 de Abril de 2026";
-export const CAMP_LOCATION_NAME = "Rancho Infinite Love";
+export const CAMP_LOCATION_NAME = "Rancho Amor Infinito";
 export const CAMP_LOCATION_LINK = "https://www.google.com/maps/place/Rancho+infinite+love/@-21.5488232,-49.6568453,16z/data=!4m6!3m5!1s0x94be6d0c418d9a7b:0x34f828990e5c10a0!8m2!3d-21.5488232!4d-49.6568453!16s%2Fg%2F11gbkyxjtg";
 export const REGISTRATION_FEE = 250.00;
 

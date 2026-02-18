@@ -57,7 +57,7 @@ export const Location: React.FC = () => {
 
             {/* Overlay hint */}
             <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-lg text-xs font-semibold text-slate-600 pointer-events-none">
-              Rancho Infinite Love
+              Rancho Amor Infinito
             </div>
           </div>
         </div>
