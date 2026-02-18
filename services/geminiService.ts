@@ -2,7 +2,14 @@ import { GoogleGenAI } from "@google/genai";
 import { CAMP_NAME, CAMP_DATE, CAMP_LOCATION_NAME, REGISTRATION_FEE } from '../constants';
 
 const apiKey = process.env.API_KEY || '';
-const ai = new GoogleGenAI({ apiKey });
+let ai: GoogleGenAI | null = null;
+
+const getAIClient = () => {
+  if (!ai && apiKey) {
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 const SYSTEM_INSTRUCTION = `
 Contexto do Evento:
@@ -51,12 +58,13 @@ Base de Conhecimento (FAQ):
 `;
 
 export const sendMessageToGemini = async (message: string): Promise<string> => {
-  if (!apiKey) {
-    return "Desculpe, o sistema de chat está em manutenção.";
+  const client = getAIClient();
+  if (!client) {
+    return "Desculpe, o sistema de chat está em manutenção (Chave API não configurada).";
   }
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await client.models.generateContent({
       model: 'gemini-flash-lite-latest',
       contents: message,
       config: {
