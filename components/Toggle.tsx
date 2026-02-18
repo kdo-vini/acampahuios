@@ -10,11 +10,14 @@ interface ToggleProps {
 
 export const Toggle: React.FC<ToggleProps> = ({ id, name, checked, onChange, label }) => {
     return (
-        <div className="flex items-center justify-between p-4 bg-slate-900/30 border border-slate-700/50 rounded-2xl transition-all duration-300 hover:border-slate-600">
-            <label htmlFor={id} className="text-slate-300 cursor-pointer select-none font-medium">
+        <label
+            htmlFor={id}
+            className="flex items-center justify-between p-4 bg-slate-900/30 border border-slate-700/50 rounded-2xl transition-all duration-300 hover:border-slate-600 cursor-pointer group"
+        >
+            <div className="text-slate-300 font-medium group-hover:text-white transition-colors">
                 {label}
-            </label>
-            <div className="relative inline-flex items-center cursor-pointer">
+            </div>
+            <div className="relative inline-flex items-center">
                 <input
                     type="checkbox"
                     id={id}
@@ -32,6 +35,6 @@ export const Toggle: React.FC<ToggleProps> = ({ id, name, checked, onChange, lab
                     )}
                 </span>
             </div>
-        </div>
+        </label>
     );
 };
