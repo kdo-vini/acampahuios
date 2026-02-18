@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
             <img
               src="/gallery/Logo Huios.png"
               alt="HUIOS Logo"
-              className="h-10 w-auto object-contain"
+              className="h-14 w-auto object-contain"
             />
           </a>
 
