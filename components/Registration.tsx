@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { User, Calendar, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Toggle } from './Toggle';
 // import { supabase } from '../services/supabase'; // We will add this later
 
 import { GOOGLE_SCRIPT_URL } from '../constants';
@@ -216,56 +217,48 @@ export const Registration: React.FC = () => {
                                 <h3 className="text-lg font-medium text-white">Informações de Saúde & Observações</h3>
 
                                 {/* Allergies */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="hasAllergy"
-                                            name="hasAllergy"
-                                            checked={formData.hasAllergy}
-                                            onChange={handleInputChange}
-                                            className="w-5 h-5 rounded border-slate-600 bg-slate-700 text-camp-primary focus:ring-camp-primary focus:ring-offset-slate-900 cursor-pointer"
-                                        />
-                                        <label htmlFor="hasAllergy" className="text-slate-300 cursor-pointer select-none">
-                                            Possui alguma restrição alimentar ou alergia?
-                                        </label>
-                                    </div>
+                                <div className="space-y-3">
+                                    <Toggle
+                                        id="hasAllergy"
+                                        name="hasAllergy"
+                                        checked={formData.hasAllergy}
+                                        onChange={handleInputChange}
+                                        label="Possui alguma restrição alimentar ou alergia?"
+                                    />
                                     {formData.hasAllergy && (
-                                        <input
-                                            type="text"
-                                            name="allergyDetails"
-                                            value={formData.allergyDetails}
-                                            onChange={handleInputChange}
-                                            placeholder="Quais alergias ou restrições?"
-                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-2 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all animate-fade-in"
-                                        />
+                                        <div className="animate-fade-in">
+                                            <input
+                                                type="text"
+                                                name="allergyDetails"
+                                                value={formData.allergyDetails}
+                                                onChange={handleInputChange}
+                                                placeholder="Quais alergias ou restrições?"
+                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                            />
+                                        </div>
                                     )}
                                 </div>
 
                                 {/* Medicines */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="hasMedicine"
-                                            name="hasMedicine"
-                                            checked={formData.hasMedicine}
-                                            onChange={handleInputChange}
-                                            className="w-5 h-5 rounded border-slate-600 bg-slate-700 text-camp-primary focus:ring-camp-primary focus:ring-offset-slate-900 cursor-pointer"
-                                        />
-                                        <label htmlFor="hasMedicine" className="text-slate-300 cursor-pointer select-none">
-                                            Faz uso de remédio contínuo?
-                                        </label>
-                                    </div>
+                                <div className="space-y-3">
+                                    <Toggle
+                                        id="hasMedicine"
+                                        name="hasMedicine"
+                                        checked={formData.hasMedicine}
+                                        onChange={handleInputChange}
+                                        label="Faz uso de remédio contínuo?"
+                                    />
                                     {formData.hasMedicine && (
-                                        <input
-                                            type="text"
-                                            name="medicineDetails"
-                                            value={formData.medicineDetails}
-                                            onChange={handleInputChange}
-                                            placeholder="Qual remédio e horário?"
-                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-2 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all animate-fade-in"
-                                        />
+                                        <div className="animate-fade-in">
+                                            <input
+                                                type="text"
+                                                name="medicineDetails"
+                                                value={formData.medicineDetails}
+                                                onChange={handleInputChange}
+                                                placeholder="Qual remédio e horário?"
+                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                            />
+                                        </div>
                                     )}
                                 </div>
 
