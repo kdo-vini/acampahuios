@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acampamento HUIOS 2026</title>
+    <meta name="description" content="Participe do nosso acampamento de jovens! Adote um jovem e transforme vidas." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Permanent Marker', 'cursive'],
+            },
+            colors: {
+              camp: {
+                dark: '#0f172a',
+                primary: '#f97316', // Orange
+                secondary: '#0ea5e9', // Sky Blue
+                accent: '#84cc16', // Lime
+                light: '#f1f5f9',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.574.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "qrcode": "https://esm.sh/qrcode@1.5.3",
+    "@stripe/stripe-js": "https://esm.sh/@stripe/stripe-js@4.1.0",
+    "@stripe/react-stripe-js": "https://esm.sh/@stripe/react-stripe-js@2.7.3"
+  }
+}
+</script>
+</head>
+  <body class="bg-camp-light text-slate-800 antialiased selection:bg-camp-primary selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>

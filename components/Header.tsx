@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Tent } from 'lucide-react';
+import { Button } from './Button';
+
+export const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Galeria', href: '#galeria' },
+    { name: 'Local', href: '#local' },
+    { name: 'Dúvidas', href: '#faq' },
+  ];
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || mobileMenuOpen ? 'bg-camp-dark/95 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="bg-camp-primary p-2 rounded-lg">
+              <Tent className="w-6 h-6 text-white" />
+            </div>
+            <span className={`text-xl font-bold font-display tracking-wider ${isScrolled || mobileMenuOpen ? 'text-white' : 'text-white'}`}>
+              HUIOS
+            </span>
+          </div>
+
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex gap-6">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name} 
+                  href={link.href}
+                  className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+            <Button 
+              size="sm" 
+              onClick={() => document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Adote um Jovem
+            </Button>
+          </div>
+
+          <div className="md:hidden">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-white p-2"
+            >
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-camp-dark border-t border-slate-800">
+          <div className="px-4 pt-2 pb-6 space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <div className="pt-4">
+              <Button 
+                className="w-full"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  document.getElementById('adote')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Adote um Jovem
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
