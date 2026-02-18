@@ -20,6 +20,8 @@ export const Registration: React.FC = () => {
     const [age, setAge] = useState<number | null>(null);
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
+    const [loadingProgress, setLoadingProgress] = useState(0);
+    const [loadingMessage, setLoadingMessage] = useState('Processando...');
 
     // Calculate age whenever birthDate changes
     useEffect(() => {
@@ -71,6 +73,24 @@ export const Registration: React.FC = () => {
 
         setStatus('submitting');
         setErrorMessage('');
+        setLoadingProgress(0);
+
+        // Simulated progress steps for better UX
+        const steps = [
+            { p: 15, m: 'Validando informações...' },
+            { p: 40, m: 'Conectando ao servidor...' },
+            { p: 70, m: 'Salvando sua inscrição...' },
+            { p: 90, m: 'Finalizando...' },
+        ];
+
+        let currentStep = 0;
+        const progressInterval = setInterval(() => {
+            if (currentStep < steps.length) {
+                setLoadingProgress(steps[currentStep].p);
+                setLoadingMessage(steps[currentStep].m);
+                currentStep++;
+            }
+        }, 600);
 
         try {
             const dataToSubmit = {
@@ -78,31 +98,37 @@ export const Registration: React.FC = () => {
                 age
             };
 
-            // Google Apps Script Web App URL
             await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Important for Google Scripts
+                mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'text/plain', // Changed to text/plain to correct payload handling
+                    'Content-Type': 'text/plain',
                 },
                 body: JSON.stringify(dataToSubmit)
             });
 
-            // Since 'no-cors' doesn't return JSON, we assume success if no network error occurred
-            setStatus('success');
-            setFormData({
-                fullName: '',
-                cpf: '',
-                birthDate: '',
-                hasAllergy: false,
-                allergyDetails: '',
-                hasMedicine: false,
-                medicineDetails: '',
-                observations: ''
-            });
-            setAge(null);
+            clearInterval(progressInterval);
+            setLoadingProgress(100);
+            setLoadingMessage('Sucesso!');
+
+            // Short delay to show 100% before transition
+            setTimeout(() => {
+                setStatus('success');
+                setFormData({
+                    fullName: '',
+                    cpf: '',
+                    birthDate: '',
+                    hasAllergy: false,
+                    allergyDetails: '',
+                    hasMedicine: false,
+                    medicineDetails: '',
+                    observations: ''
+                });
+                setAge(null);
+            }, 500);
 
         } catch (error) {
+            clearInterval(progressInterval);
             console.error('Error submitting form:', error);
             setStatus('error');
             setErrorMessage('Ocorreu um erro ao realizar a inscrição. Tente novamente.');
@@ -279,14 +305,36 @@ export const Registration: React.FC = () => {
                                 </div>
                             </div>
 
-                            <Button
-                                type="submit"
-                                className="w-full"
-                                size="lg"
-                                disabled={status === 'submitting'}
-                            >
-                                {status === 'submitting' ? 'Enviando...' : 'Confirmar Inscrição'}
-                            </Button>
+                            {status === 'submitting' ? (
+                                <div className="space-y-3 animate-fade-in">
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-sm font-medium text-camp-primary">{loadingMessage}</span>
+                                        <span className="text-sm font-bold text-white">{loadingProgress}%</span>
+                                    </div>
+                                    <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden p-[2px]">
+                                        <div
+                                            className="bg-camp-primary h-full rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(249,115,22,0.5)]"
+                                            style={{ width: `${loadingProgress}%` }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Button
+                                    type="submit"
+                                    className="w-full"
+                                    size="lg"
+                                    disabled={status === 'submitting'}
+                                >
+                                    Confirmar Inscrição
+                                </Button>
+                            )}
+
+                            {status === 'error' && (
+                                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 text-sm flex items-center gap-3 animate-shake">
+                                    <AlertCircle className="w-5 h-5" />
+                                    <span>{errorMessage}</span>
+                                </div>
+                            )}
                         </form >
                     )}
                 </div >
