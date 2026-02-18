@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import QRCode from 'qrcode';
 import { SPONSOR_OPTIONS, PIX_MERCHANT_NAME } from '../constants';
 import { Button } from './Button';
-import { Heart, CheckCircle2, X, Copy, Check, AlertCircle, QrCode } from 'lucide-react';
+import { Heart, CheckCircle2, X, Copy, Check, AlertCircle, QrCode, CreditCard } from 'lucide-react';
 import { generatePixPayload } from '../services/pixService';
 
 export const Adopt: React.FC = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+  const [activePaymentLink, setActivePaymentLink] = useState<string | undefined>(undefined);
   const [customAmount, setCustomAmount] = useState<string>('');
   const [showModal, setShowModal] = useState(false);
-  const [paymentStep, setPaymentStep] = useState<'form' | 'processing' | 'success'>('form');
+  const [paymentStep, setPaymentStep] = useState<'method-choice' | 'form' | 'processing' | 'success'>('method-choice');
 
   // Form State
   const [name, setName] = useState('');
@@ -22,14 +23,9 @@ export const Adopt: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleDonate = (amount: number, paymentLink?: string) => {
-    if (paymentLink) {
-      window.open(paymentLink, '_blank');
-      return;
-    }
-
-    // Custom amount or no link available
     setSelectedAmount(amount);
-    setPaymentStep('form');
+    setActivePaymentLink(paymentLink);
+    setPaymentStep('method-choice');
     setShowModal(true);
     setCopied(false);
     // Reset form
@@ -179,14 +175,56 @@ export const Adopt: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
+            {paymentStep === 'method-choice' && (
+              <div className="p-8">
+                <div className="flex items-center justify-center w-16 h-16 bg-slate-100 rounded-full mx-auto mb-6">
+                  <Heart className="w-8 h-8 text-camp-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-center text-slate-800 mb-2">Escolha como doar</h3>
+                <p className="text-center text-slate-500 mb-8">
+                  Você está doando <strong className="text-slate-800">R$ {selectedAmount?.toFixed(2).replace('.', ',')}</strong>. Qual método prefere usar?
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <button
+                    onClick={() => setPaymentStep('form')}
+                    className="flex flex-col items-center justify-center p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-camp-primary hover:bg-white transition-all group"
+                  >
+                    <QrCode className="w-8 h-8 text-camp-primary mb-3 group-hover:scale-110 transition-transform" />
+                    <span className="text-slate-800 font-bold">PIX</span>
+                    <span className="text-xs text-slate-500 mt-1">Imediato</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      if (activePaymentLink) {
+                        window.open(activePaymentLink, '_blank');
+                        setShowModal(false);
+                      } else {
+                        alert('Link de cartão disponível apenas para valores fixos no momento.');
+                      }
+                    }}
+                    className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-blue-500 hover:bg-white' : 'bg-slate-50 border-slate-100 opacity-50 cursor-not-allowed'}`}
+                  >
+                    <CreditCard className={`w-8 h-8 mb-3 group-hover:scale-110 transition-transform ${activePaymentLink ? 'text-blue-500' : 'text-slate-300'}`} />
+                    <span className="text-slate-800 font-bold">Cartão</span>
+                    <span className="text-xs text-slate-500 mt-1">{activePaymentLink ? 'InfinitePay' : 'Indisponível'}</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
             {paymentStep === 'form' && (
               <div className="p-8">
-                <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mx-auto mb-6">
-                  <QrCode className="w-8 h-8 text-camp-primary" />
+                <div className="flex items-center gap-4 mb-6">
+                  <button onClick={() => setPaymentStep('method-choice')} className="p-2 hover:bg-slate-100 rounded-lg text-slate-400 transition-colors">
+                    <X className="w-5 h-5 rotate-90" /> {/* Using rotate as back arrow hack or just back */}
+                  </button>
+                  <h3 className="text-xl font-bold text-slate-800">Detalhes do PIX</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-center text-slate-800 mb-2">Doação via PIX</h3>
-                <p className="text-center text-slate-500 mb-8">
-                  Você está doando <strong className="text-slate-800">R$ {selectedAmount?.toFixed(2).replace('.', ',')}</strong>. Geraremos um código PIX para você concluir no seu banco.
+
+                <p className="text-slate-500 mb-6">
+                  Preencha seus dados (opcional) para gerarmos seu código PIX.
                 </p>
 
                 <div className="space-y-4">
