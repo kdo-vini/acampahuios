@@ -14,7 +14,7 @@ export const FAQ: React.FC = () => {
 
         <div className="space-y-4">
           {FAQS.map((faq, index) => (
-            <div 
+            <div
               key={index}
               className="border border-slate-200 rounded-xl overflow-hidden transition-all duration-200"
             >
@@ -29,11 +29,10 @@ export const FAQ: React.FC = () => {
                   <ChevronDown className="w-5 h-5 text-slate-400" />
                 )}
               </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
               >
                 <div className="p-4 bg-white text-slate-600 leading-relaxed border-t border-slate-100">
                   {faq.answer}

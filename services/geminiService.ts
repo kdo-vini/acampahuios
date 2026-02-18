@@ -35,8 +35,9 @@ Base de Conhecimento (FAQ):
 - O formulário calcula a idade automaticamente.
 - Para menores de idade, a inscrição depende da autorização dos pais (mas o site aceita o cadastro).
 
-**O que levar:**
-- Itens de higiene pessoal (escova, pasta, sabonete, shampoo, toalha).
+**O que levar (IMPORTANTÍSSIMO):**
+- **PRECISA LEVAR:** Roupa de cama (lençol, travesseiro, manta/cobertor, etc.).
+- **PRECISA LEVAR:** Itens de higiene pessoal (sabonete, shampoo, pasta/escova de dente, toalha, etc.).
 - Roupas confortáveis para atividades físicas e que possam sujar.
 - Troca de roupa para TODOS os dias (considere imprevistos).
 - Roupa de banho para a piscina (apropriada).

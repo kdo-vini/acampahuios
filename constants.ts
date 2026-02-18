@@ -55,7 +55,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 export const FAQS: FaqItem[] = [
   {
     question: "O que devo levar?",
-    answer: "Traga roupa de cama, itens de higiene pessoal, roupas confortáveis para atividades físicas, Bíblia e caderno para anotações."
+    answer: "É necessário levar: Roupa de cama (lençol, travesseiro, cobertores, etc.), itens de higiene pessoal (sabonete, shampoo, escova de dente, etc.), roupas confortáveis para atividades físicas, Bíblia e caderno para anotações."
   },
   {
     question: "Como chegar ao Rancho?",
