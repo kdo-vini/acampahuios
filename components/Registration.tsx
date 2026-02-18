@@ -9,7 +9,12 @@ export const Registration: React.FC = () => {
     const [formData, setFormData] = useState({
         fullName: '',
         cpf: '',
-        birthDate: ''
+        birthDate: '',
+        hasAllergy: false,
+        allergyDetails: '',
+        hasMedicine: false, // Renamed from Medicine to avoid confusion
+        medicineDetails: '',
+        observations: ''
     });
     const [age, setAge] = useState<number | null>(null);
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -31,11 +36,13 @@ export const Registration: React.FC = () => {
         }
     }, [formData.birthDate]);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value, type } = e.target;
 
-        // Simple CPF Masking
-        if (name === 'cpf') {
+        if (type === 'checkbox') {
+            const checked = (e.target as HTMLInputElement).checked;
+            setFormData(prev => ({ ...prev, [name]: checked }));
+        } else if (name === 'cpf') {
             let mask = value.replace(/\D/g, '');
             if (mask.length > 11) mask = mask.slice(0, 11);
 
@@ -46,7 +53,6 @@ export const Registration: React.FC = () => {
             } else if (mask.length > 3) {
                 mask = mask.replace(/(\d{3})(\d{1,})/, "$1.$2");
             }
-
             setFormData(prev => ({ ...prev, [name]: mask }));
         } else {
             setFormData(prev => ({ ...prev, [name]: value }));
@@ -83,7 +89,16 @@ export const Registration: React.FC = () => {
 
             // Since 'no-cors' doesn't return JSON, we assume success if no network error occurred
             setStatus('success');
-            setFormData({ fullName: '', cpf: '', birthDate: '' });
+            setFormData({
+                fullName: '',
+                cpf: '',
+                birthDate: '',
+                hasAllergy: false,
+                allergyDetails: '',
+                hasMedicine: false,
+                medicineDetails: '',
+                observations: ''
+            });
             setAge(null);
 
         } catch (error) {
@@ -196,13 +211,80 @@ export const Registration: React.FC = () => {
                                 </div>
                             )}
 
-                            {/* Error Message */}
-                            {status === 'error' && (
-                                <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-200 text-sm flex items-center gap-2">
-                                    <AlertCircle className="w-4 h-4" />
-                                    {errorMessage}
+                            {/* Health & Observations - NEW SECTION */}
+                            <div className="space-y-4 pt-2 border-t border-slate-700">
+                                <h3 className="text-lg font-medium text-white">Informações de Saúde & Observações</h3>
+
+                                {/* Allergies */}
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="hasAllergy"
+                                            name="hasAllergy"
+                                            checked={formData.hasAllergy}
+                                            onChange={handleInputChange}
+                                            className="w-5 h-5 rounded border-slate-600 bg-slate-700 text-camp-primary focus:ring-camp-primary focus:ring-offset-slate-900 cursor-pointer"
+                                        />
+                                        <label htmlFor="hasAllergy" className="text-slate-300 cursor-pointer select-none">
+                                            Possui alguma restrição alimentar ou alergia?
+                                        </label>
+                                    </div>
+                                    {formData.hasAllergy && (
+                                        <input
+                                            type="text"
+                                            name="allergyDetails"
+                                            value={formData.allergyDetails}
+                                            onChange={handleInputChange}
+                                            placeholder="Quais alergias ou restrições?"
+                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-2 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all animate-fade-in"
+                                        />
+                                    )}
                                 </div>
-                            )}
+
+                                {/* Medicines */}
+                                <div className="space-y-2">
+                                    <div className="flex items-center gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="hasMedicine"
+                                            name="hasMedicine"
+                                            checked={formData.hasMedicine}
+                                            onChange={handleInputChange}
+                                            className="w-5 h-5 rounded border-slate-600 bg-slate-700 text-camp-primary focus:ring-camp-primary focus:ring-offset-slate-900 cursor-pointer"
+                                        />
+                                        <label htmlFor="hasMedicine" className="text-slate-300 cursor-pointer select-none">
+                                            Faz uso de remédio contínuo?
+                                        </label>
+                                    </div>
+                                    {formData.hasMedicine && (
+                                        <input
+                                            type="text"
+                                            name="medicineDetails"
+                                            value={formData.medicineDetails}
+                                            onChange={handleInputChange}
+                                            placeholder="Qual remédio e horário?"
+                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-2 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all animate-fade-in"
+                                        />
+                                    )}
+                                </div>
+
+                                {/* Observations */}
+                                <div>
+                                    <label htmlFor="observations" className="block text-sm font-medium text-slate-300 mb-2">
+                                        Observações Extras
+                                    </label>
+                                    <textarea
+                                        id="observations"
+                                        name="observations"
+                                        value={formData.observations}
+                                        onChange={handleInputChange}
+                                        rows={3}
+                                        className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all resize-none"
+                                        placeholder="Alguma outra informação importante que devamos saber?"
+                                    />
+                                </div>
+                            </div>
 
                             <Button
                                 type="submit"
@@ -212,10 +294,10 @@ export const Registration: React.FC = () => {
                             >
                                 {status === 'submitting' ? 'Enviando...' : 'Confirmar Inscrição'}
                             </Button>
-                        </form>
+                        </form >
                     )}
-                </div>
-            </div>
-        </section>
+                </div >
+            </div >
+        </section >
     );
 };
