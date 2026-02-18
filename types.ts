@@ -4,6 +4,7 @@ export interface SponsorOption {
   amount: number;
   description: string;
   popular?: boolean;
+  paymentLink?: string;
 }
 
 export interface GalleryImage {
