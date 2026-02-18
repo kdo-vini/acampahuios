@@ -19,11 +19,11 @@
           },
           colors: {
             camp: {
-              dark: '#0f172a',
-              primary: '#f97316', // Orange
-              secondary: '#0ea5e9', // Sky Blue
-              accent: '#84cc16', // Lime
-              light: '#f1f5f9',
+              dark: '#1a1a1b',    // Black
+              primary: '#6200ee', // Purple
+              secondary: '#ccff00', // Fluorescent Green
+              accent: '#ccff00',    // Using Green for accent too
+              light: '#ffffff',     // White
             }
           }
         }
@@ -81,6 +81,22 @@
       75% {
         transform: translateX(5px);
       }
+    }
+
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
     .animate-shake {

@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-tight drop-shadow-xl uppercase">
             4° ACAMPA HUIOS<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-camp-primary to-yellow-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-camp-primary to-camp-secondary animate-pulse-slow">
               CONTRACULTURA
             </span>
           </h1>

@@ -117,7 +117,7 @@ export const Adopt: React.FC = () => {
               className={`relative bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border ${option.popular ? 'border-camp-primary ring-2 ring-camp-primary/50' : 'border-slate-700'} hover:bg-slate-800 transition-all duration-300 flex flex-col`}
             >
               {option.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-camp-primary to-orange-500 text-white text-sm font-bold px-4 py-1 rounded-full shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-camp-primary to-camp-secondary text-white text-sm font-bold px-4 py-1 rounded-full shadow-lg">
                   Mais Escolhido
                 </div>
               )}
@@ -204,9 +204,9 @@ export const Adopt: React.FC = () => {
                         alert('Link de cartão disponível apenas para valores fixos no momento.');
                       }
                     }}
-                    className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-blue-500 hover:bg-white' : 'bg-slate-50 border-slate-100 opacity-50 cursor-not-allowed'}`}
+                    className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-camp-secondary hover:bg-white' : 'bg-slate-50 border-slate-100 opacity-50 cursor-not-allowed'}`}
                   >
-                    <CreditCard className={`w-8 h-8 mb-3 group-hover:scale-110 transition-transform ${activePaymentLink ? 'text-blue-500' : 'text-slate-300'}`} />
+                    <CreditCard className={`w-8 h-8 mb-3 group-hover:scale-110 transition-transform ${activePaymentLink ? 'text-camp-secondary' : 'text-slate-300'}`} />
                     <span className="text-slate-800 font-bold">Cartão</span>
                     <span className="text-xs text-slate-500 mt-1">{activePaymentLink ? 'InfinitePay' : 'Indisponível'}</span>
                   </button>

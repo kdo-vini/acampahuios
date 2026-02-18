@@ -191,9 +191,9 @@ export const Registration: React.FC = () => {
                                     href={REGISTRATION_PAYMENT_LINK}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-blue-500 hover:bg-slate-900 transition-all group"
+                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-secondary hover:bg-slate-900 transition-all group"
                                 >
-                                    <CreditCard className="w-8 h-8 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
+                                    <CreditCard className="w-8 h-8 text-camp-secondary mb-3 group-hover:scale-110 transition-transform" />
                                     <span className="text-white font-bold">Cartão de Crédito</span>
                                     <span className="text-xs text-slate-500 mt-1">Link InfinitePay</span>
                                 </a>
