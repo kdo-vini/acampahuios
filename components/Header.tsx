@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Tent } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './Button';
 
 export const Header: React.FC = () => {
@@ -29,14 +29,13 @@ export const Header: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-camp-primary p-2 rounded-lg">
-              <Tent className="w-6 h-6 text-white" />
-            </div>
-            <span className={`text-xl font-bold font-display tracking-wider ${isScrolled || mobileMenuOpen ? 'text-white' : 'text-white'}`}>
-              HUIOS
-            </span>
-          </div>
+          <a href="/" className="flex items-center gap-2">
+            <img
+              src="/gallery/Logo Huios.png"
+              alt="HUIOS Logo"
+              className="h-10 w-auto object-contain"
+            />
+          </a>
 
           <div className="hidden md:flex items-center gap-8">
             <nav className="flex gap-6">

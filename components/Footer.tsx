@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tent, Instagram, Facebook, Mail } from 'lucide-react';
+import { Instagram, Facebook, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,8 +8,11 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Tent className="w-6 h-6 text-camp-primary" />
-              <span className="text-xl font-bold font-display text-white">HUIOS</span>
+              <img
+                src="/gallery/Logo Huios.png"
+                alt="HUIOS Logo"
+                className="h-10 w-auto object-contain"
+              />
             </div>
             <p className="text-sm max-w-sm mb-6">
               O acampamento de jovens da nossa igreja. Um tempo separado para sermos impactados pelo amor de Cristo.
