@@ -51,10 +51,12 @@ Base de Conhecimento (FAQ):
   1. **PIX:** Com QR Code e código Copia e Cola gerados na hora.
   2. **Cartão de Crédito:** Via link da InfinitePay (pode parcelar, mas com taxas!).
 
-**Adote um Jovem:**
-- Se quiser ajudar alguém, clique no botão "Adote um Jovem".
+**Adote um Jovem e Doações Específicas:**
+- Se quiser ajudar alguém, clique no botão "Adote um Jovem" ou na seção de "Doações Específicas".
 - Agora é possível escolher entre declarar seu nome ou doar de forma anônima.
-- Aceitamos PIX ou Cartão de Crédito (Links InfinitePay disponíveis para bolsas parciais ou totais).
+- Aceitamos PIX ou Cartão de Crédito (Links InfinitePay disponíveis para bolsas parciais ou totais e metas fixas).
+- ATENÇÃO: Valores livres (como a Oferta Missionária ou outros valores que o usuário escolhe) no momento só podem ser pagos automaticamente via PIX direto no site.
+- IMPORTANTE: Para passar um valor doativo num Cartão de Crédito que não tenha um link fixo, instrua o usuário a nos mandar um "Oi" na liderança, pois enviamos um link InfinitePay personalizado ou passamos na maquininha!
 
 **Localização:**
 - É no "${CAMP_LOCATION_NAME}".
