@@ -4,6 +4,7 @@ import { SPONSOR_OPTIONS, PIX_MERCHANT_NAME } from '../constants';
 import { Button } from './Button';
 import { Heart, CheckCircle2, X, Copy, Check, AlertCircle, QrCode, CreditCard } from 'lucide-react';
 import { generatePixPayload } from '../services/pixService';
+import toast from 'react-hot-toast';
 
 export const Adopt: React.FC = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -201,7 +202,7 @@ export const Adopt: React.FC = () => {
                         window.open(activePaymentLink, '_blank');
                         setShowModal(false);
                       } else {
-                        alert('Link de cartão disponível apenas para valores fixos no momento.');
+                        toast.error('Link de cartão disponível apenas para valores fixos no momento.');
                       }
                     }}
                     className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-camp-secondary hover:bg-white' : 'bg-slate-50 border-slate-100 opacity-50 cursor-not-allowed'}`}

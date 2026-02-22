@@ -4,12 +4,15 @@ import { SPECIFIC_DONATIONS, PIX_MERCHANT_NAME } from '../constants';
 import { Button } from './Button';
 import { Heart, CheckCircle2, X, Copy, Check, AlertCircle, QrCode, CreditCard, Gift } from 'lucide-react';
 import { generatePixPayload } from '../services/pixService';
+import toast from 'react-hot-toast';
+import { SponsorOption } from '../types';
 
 export const SpecificDonations: React.FC = () => {
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
     const [activePaymentLink, setActivePaymentLink] = useState<string | undefined>(undefined);
     const [showModal, setShowModal] = useState(false);
     const [paymentStep, setPaymentStep] = useState<'method-choice' | 'form' | 'processing' | 'success'>('method-choice');
+    const [customAmounts, setCustomAmounts] = useState<Record<string, string>>({});
 
     // Form State
     const [name, setName] = useState('');
@@ -21,9 +24,23 @@ export const SpecificDonations: React.FC = () => {
     const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
     const [copied, setCopied] = useState(false);
 
-    const handleDonate = (amount: number, paymentLink?: string) => {
-        setSelectedAmount(amount);
-        setActivePaymentLink(paymentLink);
+    const handleCustomAmountChange = (id: string, value: string) => {
+        setCustomAmounts(prev => ({ ...prev, [id]: value }));
+    };
+
+    const handleDonate = (option: SponsorOption) => {
+        let amountToDonate = option.amount;
+        if (option.isCustomAmount) {
+            const val = parseFloat(customAmounts[option.id]);
+            if (!val || val <= 0) {
+                toast.error("Por favor, insira um valor válido para a oferta.");
+                return;
+            }
+            amountToDonate = val;
+        }
+
+        setSelectedAmount(amountToDonate);
+        setActivePaymentLink(option.paymentLink);
         setPaymentStep('method-choice');
         setShowModal(true);
         setCopied(false);
@@ -112,15 +129,29 @@ export const SpecificDonations: React.FC = () => {
                                 </div>
                             )}
                             <h3 className="text-xl font-bold text-white mb-2 leading-tight">{option.title}</h3>
-                            <div className="flex items-baseline mb-4">
-                                <span className="text-sm text-slate-400 mr-1">R$</span>
-                                <span className="text-3xl font-bold text-white">{option.amount.toFixed(2).replace('.', ',')}</span>
-                            </div>
+                            {option.isCustomAmount ? (
+                                <div className="flex items-baseline mb-4 mt-1">
+                                    <span className="text-sm text-slate-400 mr-2">R$</span>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        placeholder="0,00"
+                                        value={customAmounts[option.id] || ''}
+                                        onChange={(e) => handleCustomAmountChange(option.id, e.target.value)}
+                                        className="w-full bg-slate-900 border border-slate-600 rounded-lg py-1 px-3 text-white focus:ring-2 focus:ring-camp-primary outline-none font-bold text-2xl h-10"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="flex items-baseline mb-4">
+                                    <span className="text-sm text-slate-400 mr-1">R$</span>
+                                    <span className="text-3xl font-bold text-white">{option.amount.toFixed(2).replace('.', ',')}</span>
+                                </div>
+                            )}
                             <p className="text-sm text-slate-400 mb-6 flex-grow">{option.description}</p>
                             <Button
                                 variant={option.popular ? 'secondary' : 'outline'}
                                 className="w-full text-sm py-2"
-                                onClick={() => handleDonate(option.amount, option.paymentLink)}
+                                onClick={() => handleDonate(option)}
                             >
                                 Doar Agora
                             </Button>
@@ -168,7 +199,7 @@ export const SpecificDonations: React.FC = () => {
                                                 window.open(activePaymentLink, '_blank');
                                                 setShowModal(false);
                                             } else {
-                                                alert('Link de cartão será disponibilizado em breve.');
+                                                toast.error('Link de cartão será disponibilizado em breve.');
                                             }
                                         }}
                                         className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-camp-primary hover:bg-white' : 'bg-slate-50 border-slate-100 cursor-pointer hover:border-slate-300'}`}

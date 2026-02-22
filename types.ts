@@ -5,6 +5,7 @@ export interface SponsorOption {
   description: string;
   popular?: boolean;
   paymentLink?: string;
+  isCustomAmount?: boolean;
 }
 
 export interface GalleryImage {

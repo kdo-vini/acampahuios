@@ -47,11 +47,9 @@ export const SPECIFIC_DONATIONS: SponsorOption[] = [
   { id: 'aluguel', title: 'Apoio no Aluguel do Espaço', amount: 300.00, description: 'Ajude a custear a locação do Rancho Amor Infinito.' },
   { id: 'carnes-diaria', title: 'Alimentação (Carnes) - Cota Diária', amount: 300.00, description: 'Garanta refeições de qualidade para todos durante um dia inteiro de acampamento.' },
   { id: 'refrigerante', title: 'Bebidas e Refrigerantes', amount: 300.00, description: 'Contribua com as bebidas para refeições e momentos de comunhão.' },
-  { id: 'cafe-manha', title: 'Café da Manhã Reforçado', amount: 250.00, description: 'Patrocine pães, frios e frutas para os jovens começarem o dia com energia.' },
-  { id: 'kit-boas-vindas', title: 'Kits de Boas-Vindas', amount: 150.00, description: 'Ajude a montar os mimos e materiais especiais que cada jovem recebe ao chegar.' },
   { id: 'dinamicas', title: 'Materiais para Dinâmicas', amount: 200.00, description: 'Apoie com recursos para gincanas, provas e momentos de interação.' },
   { id: 'festas', title: 'Festas do Acampamento', amount: 500.00, description: 'Ajude a custear decorações e programações das nossas festas temáticas.' },
-  { id: 'som-luz', title: 'Estrutura de Som e Luz', amount: 400.00, description: 'Contribua com o aluguel de equipamentos para os momentos de adoração.' },
+  { id: 'oferta-missionaria', title: 'Oferta Missionária', amount: 0, isCustomAmount: true, description: 'Teremos pregadores que vêm de fora para nos abençoar. Contribua com o valor que Deus colocar no seu coração.' },
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
