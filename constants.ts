@@ -43,13 +43,13 @@ export const SPONSOR_OPTIONS: SponsorOption[] = [
 ];
 
 export const SPECIFIC_DONATIONS: SponsorOption[] = [
-  { id: 'transporte', title: 'Transporte para o evento', amount: 500.00, description: 'Ajude a custear o ônibus que levará os jovens até o Rancho.' },
-  { id: 'aluguel', title: 'Apoio no Aluguel do Espaço', amount: 300.00, description: 'Ajude a custear a locação do Rancho Amor Infinito.' },
-  { id: 'carnes-diaria', title: 'Alimentação (Carnes) - Cota Diária', amount: 300.00, description: 'Garanta refeições de qualidade para todos durante um dia inteiro de acampamento.' },
-  { id: 'refrigerante', title: 'Bebidas e Refrigerantes', amount: 300.00, description: 'Contribua com as bebidas para refeições e momentos de comunhão.' },
-  { id: 'sorvete', title: 'Caixas de Sorvete', amount: 140.00, description: 'Ajude com as caixas de sorvete para o acampamento.' },
-  { id: 'festas', title: 'Festas do Acampamento', amount: 500.00, description: 'Ajude as programações dos nossos eventos temáticos.' },
-  { id: 'decoracao', title: 'Decoração do Acampamento', amount: 600.00, description: 'Ajude a custear decorações e estrutura do acampamento.' },
+  { id: 'transporte', title: 'Transporte para o evento', amount: 500.00, description: 'Ajude a custear o ônibus que levará os jovens até o Rancho.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-1peDRYeXQl-500,00' },
+  { id: 'aluguel', title: 'Apoio no Aluguel do Espaço', amount: 300.00, description: 'Ajude a custear a locação do Rancho Amor Infinito.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-8PwPzhoTJ-300,00' },
+  { id: 'carnes-diaria', title: 'Alimentação (Carnes) - Cota Diária', amount: 300.00, description: 'Garanta refeições de qualidade para todos durante um dia inteiro de acampamento.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-8PwPzhoTJ-300,00' },
+  { id: 'refrigerante', title: 'Bebidas e Refrigerantes', amount: 300.00, description: 'Contribua com as bebidas para refeições e momentos de comunhão.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-8PwPzhoTJ-300,00' },
+  { id: 'sorvete', title: 'Caixas de Sorvete', amount: 140.00, description: 'Ajude com as caixas de sorvete para o acampamento.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-1SuydbJqRv-140,00' },
+  { id: 'festas', title: 'Festas do Acampamento', amount: 500.00, description: 'Ajude as programações dos nossos eventos temáticos.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-1peDRYeXQl-500,00' },
+  { id: 'decoracao', title: 'Decoração do Acampamento', amount: 600.00, description: 'Ajude a custear decorações e estrutura do acampamento.', paymentLink: 'https://pay.infinitepay.io/technesistemas/VC1D-2RWxo2oZEp-600,00' },
   { id: 'oferta-missionaria', title: 'Oferta Missionária', amount: 0, isCustomAmount: true, description: 'Teremos pregadores que vêm de fora para nos abençoar. Contribua com o valor que Deus colocar no seu coração.' },
 ];
 
