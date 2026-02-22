@@ -2,6 +2,7 @@ import React from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { ThemeSection } from './components/ThemeSection';
 import { About } from './components/About';
 import { Registration } from './components/Registration';
 import { Adopt } from './components/Adopt';
@@ -19,6 +20,7 @@ function App() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <ThemeSection />
         <About />
         <Registration />
         <Adopt />
