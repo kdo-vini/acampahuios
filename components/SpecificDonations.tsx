@@ -96,7 +96,7 @@ export const SpecificDonations: React.FC = () => {
                     </div>
                     <h2 className="text-4xl md:text-5xl font-display text-white mb-6">Doações Específicas</h2>
                     <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                        A intenção é arrecadar o máximo possível para nos auxiliar com os custos do acampamento e criar uma experiência incrível para os jovens!
+                        Cada detalhe do acampamento é pensado com carinho. Escolha uma área específica para abençoar e nos ajude a proporcionar uma experiência inesquecível!
                     </p>
                 </div>
 
