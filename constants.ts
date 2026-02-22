@@ -70,7 +70,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     question: "Como chegar ao Rancho?",
-    answer: "O Rancho Amor Infinito fica localizado próximo à rodovia principal. Teremos um ônibus saindo da igreja às 19h na sexta-feira."
+    answer: "O Rancho Amor Infinito fica localizado próximo à rodovia principal. Teremos um ônibus saindo da nossa igreja na IEQ (Av. José Orlando Pereira, 500) no sábado às 9h da manhã e com retorno previsto no mesmo local para as 16h de terça-feira."
   },
   {
     question: "Qual a idade mínima?",

@@ -58,9 +58,10 @@ Base de Conhecimento (FAQ):
 - ATENÇÃO: Valores livres (como a Oferta Missionária ou outros valores que o usuário escolhe) no momento só podem ser pagos automaticamente via PIX direto no site.
 - IMPORTANTE: Para passar um valor doativo num Cartão de Crédito que não tenha um link fixo, instrua o usuário a nos mandar um "Oi" na liderança, pois enviamos um link InfinitePay personalizado ou passamos na maquininha!
 
-**Localização:**
+**Localização e Transporte:**
 - É no "${CAMP_LOCATION_NAME}".
-- Teremos ônibus saindo da igreja (horário a confirmar com a liderança).
+- A partida do ônibus será na igreja IEQ (Av. José Orlando Pereira, 500) no Sábado às 09h da manhã.
+- O retorno está previsto para as 16h da Terça-feira (mesmo local).
 `;
 
 export const sendMessageToGemini = async (message: string): Promise<string> => {
