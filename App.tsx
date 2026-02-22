@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Registration } from './components/Registration';
 import { Adopt } from './components/Adopt';
+import { SpecificDonations } from './components/SpecificDonations';
 import { Gallery } from './components/Gallery';
 import { Location } from './components/Location';
 import { FAQ } from './components/FAQ';
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Registration />
         <Adopt />
+        <SpecificDonations />
         <Gallery />
         <Location />
         <FAQ />

@@ -42,6 +42,17 @@ export const SPONSOR_OPTIONS: SponsorOption[] = [
   },
 ];
 
+export const SPECIFIC_DONATIONS: SponsorOption[] = [
+  { id: 'transporte', title: 'Transporte para o evento', amount: 500.00, description: 'Ajude a custear o ônibus que levará os jovens até o Rancho.' },
+  { id: 'refrigerante', title: 'Fardos de refrigerante', amount: 300.00, description: 'Contribua com as bebidas para as refeições e festas.' },
+  { id: 'aluguel', title: 'Ajudar no aluguel do espaço', amount: 300.00, description: 'Ajude a pagar a locação do Rancho Amor Infinito.' },
+  { id: 'carnes-1', title: 'Alimentação (carnes) dia 01', amount: 300.00, description: 'Contribua com as carnes para as refeições do primeiro dia.' },
+  { id: 'carnes-2', title: 'Alimentação (carnes) dia 02', amount: 300.00, description: 'Contribua com as carnes para as refeições do segundo dia.' },
+  { id: 'carnes-3', title: 'Alimentação (carnes) dia 03', amount: 300.00, description: 'Contribua com as carnes para as refeições do terceiro dia.' },
+  { id: 'festas', title: 'Festas do acampamento', amount: 500.00, description: 'Ajude a custear as festas e programações.' },
+  { id: 'decoracao', title: 'Decoração do evento', amount: 600.00, description: 'Contribua com os itens de decoração dos ambientes.' },
+];
+
 export const GALLERY_IMAGES: GalleryImage[] = [
   { id: '1', url: '/gallery/1.jpeg', alt: 'Momentos de louvor' },
   { id: '2', url: '/gallery/2.jpeg', alt: 'Atividades ao ar livre' },
