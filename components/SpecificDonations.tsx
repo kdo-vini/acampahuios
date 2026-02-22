@@ -199,14 +199,18 @@ export const SpecificDonations: React.FC = () => {
                                                 window.open(activePaymentLink, '_blank');
                                                 setShowModal(false);
                                             } else {
-                                                toast.error('Link de cartão será disponibilizado em breve.');
+                                                toast('Valores livres são apenas via PIX por enquanto. Caso precise passar cartão, nos mande um "Oi" que enviamos um link ou levamos a maquininha!', {
+                                                    icon: '💳',
+                                                    duration: 6000,
+                                                    style: { maxWidth: '400px' }
+                                                });
                                             }
                                         }}
                                         className={`flex flex-col items-center justify-center p-6 border rounded-2xl transition-all group ${activePaymentLink ? 'bg-slate-50 border-slate-200 hover:border-camp-primary hover:bg-white' : 'bg-slate-50 border-slate-100 cursor-pointer hover:border-slate-300'}`}
                                     >
                                         <CreditCard className={`w-8 h-8 mb-3 group-hover:scale-110 transition-transform ${activePaymentLink ? 'text-camp-primary' : 'text-slate-400'}`} />
                                         <span className="text-slate-800 font-bold">Cartão</span>
-                                        <span className="text-xs text-slate-500 mt-1">{activePaymentLink ? 'InfinitePay' : 'Em breve'}</span>
+                                        <span className="text-xs text-slate-500 mt-1">{activePaymentLink ? 'InfinitePay' : 'Pix ou Falar C/ Liderança'}</span>
                                     </button>
                                 </div>
                             </div>
