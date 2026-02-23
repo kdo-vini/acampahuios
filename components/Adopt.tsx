@@ -60,7 +60,7 @@ export const Adopt: React.FC = () => {
 
     try {
       // 1. Generate PIX String
-      const payload = generatePixPayload(selectedAmount, 'HUIOS' + Date.now().toString().slice(-4));
+      const payload = generatePixPayload(selectedAmount);
       setPixPayload(payload);
 
       // 2. Generate QR Code Image

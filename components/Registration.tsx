@@ -31,7 +31,7 @@ export const Registration: React.FC = () => {
     const [copied, setCopied] = useState(false);
 
     const handlePixClick = async () => {
-        const payload = generatePixPayload(REGISTRATION_FEE, 'REG' + Date.now().toString().slice(-4));
+        const payload = generatePixPayload(REGISTRATION_FEE);
         const qrCode = await QRCode.toDataURL(payload);
         setPixPayload(payload);
         setPixQrCode(qrCode);

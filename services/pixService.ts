@@ -27,12 +27,12 @@ const calculateCRC16 = (payload: string): string => {
 /**
  * Generates a PIX Static payload string (Copy and Paste code)
  */
-export const generatePixPayload = (amount: number, txId: string = '***'): string => {
+export const generatePixPayload = (amount: number): string => {
   const amountStr = amount.toFixed(2);
-  
+
   // 00 - Payload Format Indicator
   const p00 = formatField('00', '01');
-  
+
   // 26 - Merchant Account Information
   const gui = formatField('00', 'br.gov.bcb.pix');
   const key = formatField('01', PIX_KEY);
@@ -51,13 +51,15 @@ export const generatePixPayload = (amount: number, txId: string = '***'): string
   const p58 = formatField('58', 'BR');
 
   // 59 - Merchant Name
+  // The name length must be up to 25 chars max
   const p59 = formatField('59', PIX_MERCHANT_NAME.substring(0, 25));
 
   // 60 - Merchant City
   const p60 = formatField('60', PIX_MERCHANT_CITY.substring(0, 15));
 
   // 62 - Additional Data Field (TxID)
-  const p05 = formatField('05', txId);
+  // Must be *** for static PIX using random keys (EVP) to avoid rejection
+  const p05 = formatField('05', '***');
   const p62 = formatField('62', p05);
 
   // Payload without CRC
