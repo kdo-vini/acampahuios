@@ -170,12 +170,12 @@ export const Registration: React.FC = () => {
                 <div className="relative bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">
                     {/* INSCRIÇÕES ENCERRADAS - OVERLAY */}
                     <div className="absolute inset-0 z-50 rounded-3xl backdrop-blur-md bg-[#0f172a]/70 flex flex-col items-center justify-center p-6 border border-slate-700/50 text-center overflow-hidden">
-                        
+
                         {/* Faixa Estilo Premium / Neon Banner */}
                         <div className="relative group mb-12">
                             {/* Glow traseiro (Laranja/Roxo) */}
                             <div className="absolute -inset-1.5 bg-gradient-to-r from-camp-primary to-purple-600 rounded-2xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-300"></div>
-                            
+
                             <div className="relative bg-gradient-to-r from-indigo-700 to-violet-600 text-white font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.2em] py-4 px-10 rounded-xl transform -rotate-3 hover:-rotate-1 transition-all duration-300 border border-white/20 whitespace-nowrap shadow-2xl">
                                 INSCRIÇÕES ENCERRADAS
                             </div>
@@ -185,11 +185,11 @@ export const Registration: React.FC = () => {
                         <div className="bg-[#1e293b]/80 border border-slate-700/50 p-8 rounded-[2rem] backdrop-blur-xl max-w-sm w-full shadow-2xl relative group/card">
                             {/* Efeito de brilho interno sutil */}
                             <div className="absolute inset-0 rounded-[2rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.03)] border border-white/10 pointer-events-none"></div>
-                            
+
                             <p className="text-slate-300 font-medium mb-6 text-lg tracking-wide">Dúvidas?</p>
-                            <a 
-                                href="https://wa.me/5514981392626?text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20acampamento." 
-                                target="_blank" 
+                            <a
+                                href="https://wa.me/5514981392626?text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20acampamento."
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative inline-flex w-full items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1faa53] text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] ring-1 ring-[#25D366]/50 overflow-hidden"
                             >
@@ -200,242 +200,242 @@ export const Registration: React.FC = () => {
 
                     <div className="pointer-events-none select-none opacity-30 blur-[4px]">
                         {status === 'success' ? (
-                        <div className="text-center animate-fade-in">
-                            <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <CheckCircle2 className="w-10 h-10 text-green-500" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Inscrição Enviada!</h3>
-                            <p className="text-slate-400 mb-8">Sua inscrição foi realizada com sucesso. Agora, escolha uma forma de pagamento para garantir sua vaga:</p>
+                            <div className="text-center animate-fade-in">
+                                <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <CheckCircle2 className="w-10 h-10 text-green-500" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-2">Inscrição Enviada!</h3>
+                                <p className="text-slate-400 mb-8">Sua inscrição foi realizada com sucesso. Agora, escolha uma forma de pagamento para garantir sua vaga:</p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                                <button
-                                    type="button"
-                                    onClick={handlePixClick}
-                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-primary hover:bg-slate-900 transition-all group"
-                                >
-                                    <QrCode className="w-8 h-8 text-camp-primary mb-3 group-hover:scale-110 transition-transform" />
-                                    <span className="text-white font-bold">Pagar via PIX</span>
-                                    <span className="text-xs text-slate-500 mt-1">Liberação imediata</span>
-                                </button>
-
-                                <a
-                                    href={REGISTRATION_PAYMENT_LINK}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-secondary hover:bg-slate-900 transition-all group"
-                                >
-                                    <CreditCard className="w-8 h-8 text-camp-secondary mb-3 group-hover:scale-110 transition-transform" />
-                                    <span className="text-white font-bold">Cartão de Crédito</span>
-                                    <span className="text-xs text-slate-500 mt-1">Link InfinitePay</span>
-                                </a>
-                            </div>
-
-                            {showPix && (
-                                <div className="mb-8 p-6 bg-white rounded-2xl animate-fade-in-up">
-                                    <h4 className="text-slate-900 font-bold mb-4">Atenção ao realizar o PIX</h4>
-                                    <div className="flex justify-center mb-4">
-                                        <img src={pixQrCode} alt="PIX QR Code" className="w-48 h-48" />
-                                    </div>
-                                    <div className="bg-slate-100 p-3 rounded-xl mb-4 text-left">
-                                        <p className="text-xs text-slate-400 mb-1 font-bold">Beneficiário:</p>
-                                        <p className="text-sm text-slate-800 font-bold">{PIX_MERCHANT_NAME}</p>
-                                    </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                     <button
                                         type="button"
-                                        onClick={copyPix}
-                                        className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl hover:bg-black transition-colors"
+                                        onClick={handlePixClick}
+                                        className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-primary hover:bg-slate-900 transition-all group"
                                     >
-                                        {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
-                                        {copied ? 'Copiado!' : 'Copiar Código PIX'}
+                                        <QrCode className="w-8 h-8 text-camp-primary mb-3 group-hover:scale-110 transition-transform" />
+                                        <span className="text-white font-bold">Pagar via PIX</span>
+                                        <span className="text-xs text-slate-500 mt-1">Liberação imediata</span>
                                     </button>
-                                </div>
-                            )}
 
-                            <div className="pt-6 border-t border-slate-700">
-                                <Button onClick={() => { setStatus('idle'); setShowPix(false); }} variant="outline">
-                                    Fazer Outra Inscrição
-                                </Button>
-                            </div>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            {/* Full Name */}
-                            <div>
-                                <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
-                                    Nome Completo
-                                </label>
-                                <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <User className="w-5 h-5 text-slate-500" />
+                                    <a
+                                        href={REGISTRATION_PAYMENT_LINK}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-col items-center justify-center p-6 bg-slate-900/50 border border-slate-700 rounded-2xl hover:border-camp-secondary hover:bg-slate-900 transition-all group"
+                                    >
+                                        <CreditCard className="w-8 h-8 text-camp-secondary mb-3 group-hover:scale-110 transition-transform" />
+                                        <span className="text-white font-bold">Cartão de Crédito</span>
+                                        <span className="text-xs text-slate-500 mt-1">Link InfinitePay</span>
+                                    </a>
+                                </div>
+
+                                {showPix && (
+                                    <div className="mb-8 p-6 bg-white rounded-2xl animate-fade-in-up">
+                                        <h4 className="text-slate-900 font-bold mb-4">Atenção ao realizar o PIX</h4>
+                                        <div className="flex justify-center mb-4">
+                                            <img src={pixQrCode} alt="PIX QR Code" className="w-48 h-48" />
+                                        </div>
+                                        <div className="bg-slate-100 p-3 rounded-xl mb-4 text-left">
+                                            <p className="text-xs text-slate-400 mb-1 font-bold">Beneficiário:</p>
+                                            <p className="text-sm text-slate-800 font-bold">{PIX_MERCHANT_NAME}</p>
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={copyPix}
+                                            className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white py-3 rounded-xl hover:bg-black transition-colors"
+                                        >
+                                            {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+                                            {copied ? 'Copiado!' : 'Copiar Código PIX'}
+                                        </button>
                                     </div>
-                                    <input
-                                        type="text"
-                                        id="fullName"
-                                        name="fullName"
-                                        required
-                                        value={formData.fullName}
-                                        onChange={handleInputChange}
-                                        className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 pl-10 pr-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
-                                        placeholder="Digite seu nome completo"
-                                    />
+                                )}
+
+                                <div className="pt-6 border-t border-slate-700">
+                                    <Button onClick={() => { setStatus('idle'); setShowPix(false); }} variant="outline">
+                                        Fazer Outra Inscrição
+                                    </Button>
                                 </div>
                             </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {/* CPF */}
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {/* Full Name */}
                                 <div>
-                                    <label htmlFor="cpf" className="block text-sm font-medium text-slate-300 mb-2">
-                                        CPF
+                                    <label htmlFor="fullName" className="block text-sm font-medium text-slate-300 mb-2">
+                                        Nome Completo
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <FileText className="w-5 h-5 text-slate-500" />
+                                            <User className="w-5 h-5 text-slate-500" />
                                         </div>
                                         <input
                                             type="text"
-                                            id="cpf"
-                                            name="cpf"
+                                            id="fullName"
+                                            name="fullName"
                                             required
-                                            value={formData.cpf}
+                                            value={formData.fullName}
                                             onChange={handleInputChange}
                                             className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 pl-10 pr-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
-                                            placeholder="000.000.000-00"
-                                            maxLength={14}
+                                            placeholder="Digite seu nome completo"
                                         />
                                     </div>
                                 </div>
 
-                                {/* Birth Date */}
-                                <div>
-                                    <label htmlFor="birthDate" className="block text-sm font-medium text-slate-300 mb-2">
-                                        Data de Nascimento
-                                    </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <Calendar className="w-5 h-5 text-slate-500" />
-                                        </div>
-                                        <input
-                                            type="date"
-                                            id="birthDate"
-                                            name="birthDate"
-                                            required
-                                            value={formData.birthDate}
-                                            onChange={handleInputChange}
-                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 pl-10 pr-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all calendar-picker-indicator-white"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Age Display */}
-                            {age !== null && (
-                                <div className="p-4 rounded-xl border flex items-center gap-3 bg-camp-primary/10 border-camp-primary/30 text-camp-primary animate-fade-in">
-                                    <AlertCircle className="w-5 h-5" />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* CPF */}
                                     <div>
-                                        <span className="font-bold text-lg">{age} anos</span>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Health & Observations - NEW SECTION */}
-                            <div className="space-y-4 pt-2 border-t border-slate-700">
-                                <h3 className="text-lg font-medium text-white">Informações de Saúde & Observações</h3>
-
-                                {/* Allergies */}
-                                <div className="space-y-3">
-                                    <Toggle
-                                        id="hasAllergy"
-                                        name="hasAllergy"
-                                        checked={formData.hasAllergy}
-                                        onChange={handleInputChange}
-                                        label="Possui alguma restrição alimentar ou alergia?"
-                                    />
-                                    {formData.hasAllergy && (
-                                        <div className="animate-fade-in">
+                                        <label htmlFor="cpf" className="block text-sm font-medium text-slate-300 mb-2">
+                                            CPF
+                                        </label>
+                                        <div className="relative">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <FileText className="w-5 h-5 text-slate-500" />
+                                            </div>
                                             <input
                                                 type="text"
-                                                name="allergyDetails"
-                                                value={formData.allergyDetails}
+                                                id="cpf"
+                                                name="cpf"
+                                                required
+                                                value={formData.cpf}
                                                 onChange={handleInputChange}
-                                                placeholder="Quais alergias ou restrições?"
-                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 pl-10 pr-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                                placeholder="000.000.000-00"
+                                                maxLength={14}
                                             />
                                         </div>
-                                    )}
-                                </div>
+                                    </div>
 
-                                {/* Medicines */}
-                                <div className="space-y-3">
-                                    <Toggle
-                                        id="hasMedicine"
-                                        name="hasMedicine"
-                                        checked={formData.hasMedicine}
-                                        onChange={handleInputChange}
-                                        label="Faz uso de remédio contínuo?"
-                                    />
-                                    {formData.hasMedicine && (
-                                        <div className="animate-fade-in">
+                                    {/* Birth Date */}
+                                    <div>
+                                        <label htmlFor="birthDate" className="block text-sm font-medium text-slate-300 mb-2">
+                                            Data de Nascimento
+                                        </label>
+                                        <div className="relative">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <Calendar className="w-5 h-5 text-slate-500" />
+                                            </div>
                                             <input
-                                                type="text"
-                                                name="medicineDetails"
-                                                value={formData.medicineDetails}
+                                                type="date"
+                                                id="birthDate"
+                                                name="birthDate"
+                                                required
+                                                value={formData.birthDate}
                                                 onChange={handleInputChange}
-                                                placeholder="Qual remédio e horário?"
-                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                                className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 pl-10 pr-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all calendar-picker-indicator-white"
                                             />
                                         </div>
-                                    )}
-                                </div>
-
-                                {/* Observations */}
-                                <div>
-                                    <label htmlFor="observations" className="block text-sm font-medium text-slate-300 mb-2">
-                                        Observações Extras
-                                    </label>
-                                    <textarea
-                                        id="observations"
-                                        name="observations"
-                                        value={formData.observations}
-                                        onChange={handleInputChange}
-                                        rows={3}
-                                        className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all resize-none"
-                                        placeholder="Alguma outra informação importante que devamos saber?"
-                                    />
-                                </div>
-                            </div>
-
-                            {status === 'submitting' ? (
-                                <div className="space-y-3 animate-fade-in">
-                                    <div className="flex justify-between items-end mb-1">
-                                        <span className="text-sm font-medium text-camp-primary">{loadingMessage}</span>
-                                        <span className="text-sm font-bold text-white">{loadingProgress}%</span>
-                                    </div>
-                                    <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden p-[2px]">
-                                        <div
-                                            className="bg-camp-primary h-full rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(249,115,22,0.5)]"
-                                            style={{ width: `${loadingProgress}%` }}
-                                        ></div>
                                     </div>
                                 </div>
-                            ) : (
-                                <Button
-                                    type="submit"
-                                    className="w-full"
-                                    size="lg"
-                                    disabled={status === 'submitting'}
-                                >
-                                    Confirmar Inscrição
-                                </Button>
-                            )}
 
-                            {status === 'error' && (
-                                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 text-sm flex items-center gap-3 animate-shake">
-                                    <AlertCircle className="w-5 h-5" />
-                                    <span>{errorMessage}</span>
+                                {/* Age Display */}
+                                {age !== null && (
+                                    <div className="p-4 rounded-xl border flex items-center gap-3 bg-camp-primary/10 border-camp-primary/30 text-camp-primary animate-fade-in">
+                                        <AlertCircle className="w-5 h-5" />
+                                        <div>
+                                            <span className="font-bold text-lg">{age} anos</span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Health & Observations - NEW SECTION */}
+                                <div className="space-y-4 pt-2 border-t border-slate-700">
+                                    <h3 className="text-lg font-medium text-white">Informações de Saúde & Observações</h3>
+
+                                    {/* Allergies */}
+                                    <div className="space-y-3">
+                                        <Toggle
+                                            id="hasAllergy"
+                                            name="hasAllergy"
+                                            checked={formData.hasAllergy}
+                                            onChange={handleInputChange}
+                                            label="Possui alguma restrição alimentar ou alergia?"
+                                        />
+                                        {formData.hasAllergy && (
+                                            <div className="animate-fade-in">
+                                                <input
+                                                    type="text"
+                                                    name="allergyDetails"
+                                                    value={formData.allergyDetails}
+                                                    onChange={handleInputChange}
+                                                    placeholder="Quais alergias ou restrições?"
+                                                    className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Medicines */}
+                                    <div className="space-y-3">
+                                        <Toggle
+                                            id="hasMedicine"
+                                            name="hasMedicine"
+                                            checked={formData.hasMedicine}
+                                            onChange={handleInputChange}
+                                            label="Faz uso de remédio contínuo?"
+                                        />
+                                        {formData.hasMedicine && (
+                                            <div className="animate-fade-in">
+                                                <input
+                                                    type="text"
+                                                    name="medicineDetails"
+                                                    value={formData.medicineDetails}
+                                                    onChange={handleInputChange}
+                                                    placeholder="Qual remédio e horário?"
+                                                    className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all"
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Observations */}
+                                    <div>
+                                        <label htmlFor="observations" className="block text-sm font-medium text-slate-300 mb-2">
+                                            Observações Extras
+                                        </label>
+                                        <textarea
+                                            id="observations"
+                                            name="observations"
+                                            value={formData.observations}
+                                            onChange={handleInputChange}
+                                            rows={3}
+                                            className="w-full bg-slate-900/50 border border-slate-600 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:ring-2 focus:ring-camp-primary focus:border-transparent outline-none transition-all resize-none"
+                                            placeholder="Alguma outra informação importante que devamos saber?"
+                                        />
+                                    </div>
                                 </div>
-                            )}
-                        </form >
-                    )}
+
+                                {status === 'submitting' ? (
+                                    <div className="space-y-3 animate-fade-in">
+                                        <div className="flex justify-between items-end mb-1">
+                                            <span className="text-sm font-medium text-camp-primary">{loadingMessage}</span>
+                                            <span className="text-sm font-bold text-white">{loadingProgress}%</span>
+                                        </div>
+                                        <div className="w-full bg-slate-700 rounded-full h-3 overflow-hidden p-[2px]">
+                                            <div
+                                                className="bg-camp-primary h-full rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(249,115,22,0.5)]"
+                                                style={{ width: `${loadingProgress}%` }}
+                                            ></div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Button
+                                        type="submit"
+                                        className="w-full"
+                                        size="lg"
+                                        disabled={status === 'submitting'}
+                                    >
+                                        Confirmar Inscrição
+                                    </Button>
+                                )}
+
+                                {status === 'error' && (
+                                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-500 text-sm flex items-center gap-3 animate-shake">
+                                        <AlertCircle className="w-5 h-5" />
+                                        <span>{errorMessage}</span>
+                                    </div>
+                                )}
+                            </form >
+                        )}
                     </div>
                 </div >
             </div >
