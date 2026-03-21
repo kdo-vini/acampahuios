@@ -167,8 +167,39 @@ export const Registration: React.FC = () => {
                     <p className="text-slate-400">Preencha o formulário abaixo para realizar sua inscrição no 4° Acampamento HUIOS 2026 - CONTRACULTURA.</p>
                 </div>
 
-                <div className="bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">
-                    {status === 'success' ? (
+                <div className="relative bg-slate-800/50 backdrop-blur-md rounded-3xl p-8 border border-slate-700 shadow-xl">
+                    {/* INSCRIÇÕES ENCERRADAS - OVERLAY */}
+                    <div className="absolute inset-0 z-50 rounded-3xl backdrop-blur-md bg-[#0f172a]/70 flex flex-col items-center justify-center p-6 border border-slate-700/50 text-center overflow-hidden">
+                        
+                        {/* Faixa Estilo Premium / Neon Banner */}
+                        <div className="relative group mb-12">
+                            {/* Glow traseiro (Laranja/Roxo) */}
+                            <div className="absolute -inset-1.5 bg-gradient-to-r from-camp-primary to-purple-600 rounded-2xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-300"></div>
+                            
+                            <div className="relative bg-gradient-to-r from-indigo-700 to-violet-600 text-white font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.2em] py-4 px-10 rounded-xl transform -rotate-3 hover:-rotate-1 transition-all duration-300 border border-white/20 whitespace-nowrap shadow-2xl">
+                                INSCRIÇÕES ENCERRADAS
+                            </div>
+                        </div>
+
+                        {/* Card Glassmorphism */}
+                        <div className="bg-[#1e293b]/80 border border-slate-700/50 p-8 rounded-[2rem] backdrop-blur-xl max-w-sm w-full shadow-2xl relative group/card">
+                            {/* Efeito de brilho interno sutil */}
+                            <div className="absolute inset-0 rounded-[2rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.03)] border border-white/10 pointer-events-none"></div>
+                            
+                            <p className="text-slate-300 font-medium mb-6 text-lg tracking-wide">Dúvidas?</p>
+                            <a 
+                                href="https://wa.me/5514981392626?text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20o%20acampamento." 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="relative inline-flex w-full items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1faa53] text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] ring-1 ring-[#25D366]/50 overflow-hidden"
+                            >
+                                <span className="relative z-10 text-lg">Fale Conosco</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="pointer-events-none select-none opacity-30 blur-[4px]">
+                        {status === 'success' ? (
                         <div className="text-center animate-fade-in">
                             <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <CheckCircle2 className="w-10 h-10 text-green-500" />
@@ -405,6 +436,7 @@ export const Registration: React.FC = () => {
                             )}
                         </form >
                     )}
+                    </div>
                 </div >
             </div >
         </section >
